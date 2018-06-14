@@ -1,8 +1,8 @@
         /************************************************************************************************ 
           Course:  Web Application Development
           Assignment:  Lesson 4 (JavaScript 1)
-          Author:  
-          Date:   
+          Author:  Alvaro Jaramillo
+          Date:   06/14/18
           Filename: expenseCalculator.js
         *************************************************************************************************/
      
@@ -36,6 +36,10 @@
 
                   var shelterAmt = document.getElementById("shelterInput").value;
                   var foodAmt = document.getElementById("foodInput").value;
+                  
+                  var householdAmt = document.getElementById("householdInput").value;
+                  var transportationAmt = document.getElementById("transportationInput").value;
+                  var miscellaneousAmt = document.getElementById("miscellaneousInput").value;
 
 
 
@@ -58,8 +62,12 @@
 
                   shelterAmt = parseFloat(shelterAmt);
                   foodAmt = parseFloat(foodAmt);
-
-
+                  
+                  householdAmt = parseFloat(householdAmt);
+                  transportationAmt = parseFloat(transportationAmt);
+                  miscellaneousAmt = parseFloat(miscellaneousAmt);
+                  
+                  
 
 
                   /******************************************************************************************************
@@ -79,6 +87,11 @@
                   var totalExpenses; //total expenses for the user
                   var shelterPct; //shelter category percentage
                   var foodPct;  //food category percentage
+                  
+                  var householdPct;
+                  var transportationPct;
+                  var miscellaneousPct;
+                  
 
 
 
@@ -105,10 +118,16 @@
                    *          Miscellaneous percentage (you must add). The result of the calculations are assigned to the 
                    *          variables declared in Task 4.  
                   *******************************************************************************************************/   
-
-
+                  
+                  totalExpenses = shelterAmt + foodAmt + householdAmt + miscellaneousAmt + transportationAmt;
+                  
                   shelterPct = 100 * (shelterAmt / totalExpenses);
                   foodPct = 100 * (foodAmt / totalExpenses);
+                  
+                  householdPct = 100 * (householdAmt / totalExpenses);
+                  transportationPct = 100 * (transportationAmt / totalExpenses);
+                  miscellaneousPct = 100 * (miscellaneousAmt / totalExpenses);
+                  
 
 
                   /******************************************************************************************************
@@ -133,8 +152,13 @@
                   *******************************************************************************************************/  
 
                   document.getElementById("totalExpenses").innerHTML = "<b>Total Expenses:     $</b> " + totalExpenses.toFixed(2);
-                  document.getElementById("shelterPercentage").innerHTML = "% for <b>shelter</b>:      " + shelterPct.toFixed(1);      
-                  document.getElementById("foodPercentage").innerHTML = "% for <b>food:</b>      " + foodPct.toFixed(1);
+                  document.getElementById("shelterPercentage").innerHTML = "% for <b>Shelter</b>:      " + shelterPct.toFixed(1);      
+                  document.getElementById("foodPercentage").innerHTML = "% for <b>Food</b>:     " + foodPct.toFixed(1);
+                  
+                  document.getElementById("householdPercentage").innerHTML = "% for <b>Household</b>:   " + householdPct.toFixed(1); 
+                  document.getElementById("transportationPercentage").innerHTML = "% for <b>Transportation</b>:   " + transportationPct.toFixed(1);
+                  document.getElementById("miscellaneousPercentage").innerHTML = "% for <b>Miscellaneous</b>:  " + miscellaneousPct.toFixed(1);
+                   
 
 
          } //end of calculatePercentages function
@@ -171,6 +195,11 @@
                   document.getElementById("totalExpenses").innerHTML = ""; 
                   document.getElementById("shelterPercentage").innerHTML = "";      
                   document.getElementById("foodPercentage").innerHTML  = "";
+                  
+                  document.getElementById("householdPercentage").innerHTML = "";
+                  document.getElementById("transportationPercentage").innerHTML = "";
+                  document.getElementById("miscellaneousPercentage").innerHTML = "";
+                  
 
 
               
